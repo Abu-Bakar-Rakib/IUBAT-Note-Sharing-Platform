@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "code": "BCSE",
+    "name": "Computer Science & Engineering",
+    "enabled": true
+  },
+  {
+    "id": 2,
+    "code": "BSEEE",
+    "name": "Electrical & Electronic Engineering",
+    "enabled": true
+  },
+  {
+    "id": 3,
+    "code": "BBA",
+    "name": "Business Administration",
+    "enabled": true
+  },
+  {
+    "id": 4,
+    "code": "BSCE",
+    "name": "Civil Engineering",
+    "enabled": true
+  }
+]

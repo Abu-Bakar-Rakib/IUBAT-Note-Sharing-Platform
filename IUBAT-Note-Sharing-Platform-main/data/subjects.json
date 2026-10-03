@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "name": "Algorithms",
+    "department": "Computer Science & Engineering"
+  },
+  {
+    "id": 2,
+    "name": "Operating Systems",
+    "department": "Computer Science & Engineering"
+  }
+]

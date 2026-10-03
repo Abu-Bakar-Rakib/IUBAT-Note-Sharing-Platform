@@ -1,0 +1,511 @@
+<!-- ============================================================ -->
+<!-- department-controls.html - iShare IUBAT Platform                          -->
+<!-- This page represents the UI for the department-controls feature. -->
+<!-- ============================================================ -->
+
+﻿<!-- ============================================ -->
+<!-- Department Controls - iShare IUBAT             -->
+
+<!-- ============================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Controls - iShare IUBAT</title>
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="../css/admin-dashboard.css">
+    <link rel="stylesheet" href="../css/department-controls.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="sidebar-logo-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 9l10 7 10-7-10-7z"/><path d="M7 12l5 3.5 5-3.5"/><path d="M12 16v4"/><circle cx="12" cy="21" r="1"/></svg>
+                    </div>
+                    <div>
+                        <div class="sidebar-brand">iShare</div>
+                        <div class="sidebar-badge">IUBAT</div>
+                    </div>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Admin Governance</div>
+                <button class="nav-item" type="button" onclick="window.location.href='admin-dashboard.html'">
+                    <span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+                    Platform Overview
+                </button>
+                <button class="nav-item" type="button" onclick="window.location.href='user-management.html'">
+                    <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4v2a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+                    User Management
+                </button>
+                <button class="nav-item active" type="button" onclick="window.location.href='department-controls.html'">
+                    <span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                    Department Controls
+                </button>
+                <button class="nav-item" type="button" onclick="window.location.href='announcement-management.html'">
+                    <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3z"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>
+                    Announcement Management
+                    <span class="nav-badge">0</span>
+                </button>
+                <button class="nav-item" type="button" onclick="window.location.href='student-view.html'">
+                    <span class="nav-icon"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>
+                    Student View
+                    <span class="nav-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-ai">
+                    <div class="sidebar-ai-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                    </div>
+                    <div>
+                        <div class="sidebar-ai-text">AI Gemma Assistant</div>
+                        <div class="sidebar-ai-sub">Online</div>
+                    </div>
+                </div>
+                <button class="sidebar-bottom-item" type="button" onclick="window.location.href='index.html'">
+                    <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    Log Out
+                </button>
+            </div>
+        </aside>
+        <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay"></div>
+
+        
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="topbar-btn primary" type="button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                        AI Assistant
+                    </button>
+                </div>
+                <div class="topbar-actions">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Menu">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                    <div class="notification-wrapper" id="notificationWrapper">
+                        <button class="topbar-icon-btn" id="notificationBtn" title="Notifications" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                            <span class="topbar-badge" id="notificationBadge" style="display:none;">0</span>
+                        </button>
+                        <div class="notification-dropdown" id="notificationDropdown">
+                            <div class="notification-header">
+                                <h3>Notifications</h3>
+                                <div class="notification-header-actions">
+                                    <button class="mark-all-read" id="markAllRead">Mark all as read</button>
+                                    <button class="delete-all" id="deleteAllNotifications">Delete all</button>
+                                </div>
+                            </div>
+                            <div class="notification-list" id="notificationList">
+                                <div class="notification-empty">No notifications yet.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topbar-avatar" title="User Menu">SI</div>
+                </div>
+            </header>
+
+            
+            <div class="content-area">
+                <div class="page-header">
+                    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+                        <div>
+                            <h1 class="page-title">Department Controls</h1>
+                            <p class="page-subtitle">Manage permissions, visibility settings, and monitor activity metrics across all university departments. Changes apply immediately to global systems.</p>
+                        </div>
+                        <div style="display:flex;gap:10px;flex-shrink:0;">
+                            <button class="topbar-btn primary" type="button" onclick="openNewDeptModal()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                New Department
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="dept-grid" id="deptGrid"></div>
+            </div>
+        </main>
+    </div>
+
+    
+    <div class="modal-overlay" id="newDeptModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">Add New Department</h3>
+                <button class="modal-close" onclick="closeNewDeptModal()" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Department Code</label>
+                    <input type="text" class="form-input" id="newDeptCode" placeholder="e.g. CSE" maxlength="10">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Department Name</label>
+                    <input type="text" class="form-input" id="newDeptName" placeholder="e.g. Computer Science & Engineering">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Department Type</label>
+                    <select class="form-select" id="newDeptType">
+                        <option value="ENGINEERING">Engineering</option>
+                        <option value="BUSINESS">Business</option>
+                        <option value="ARTS">Arts</option>
+                        <option value="SCIENCE">Science</option>
+                        <option value="HEALTH">Health</option>
+                        <option value="OTHER">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="topbar-btn" type="button" onclick="closeNewDeptModal()">Cancel</button>
+                <button class="topbar-btn primary" type="button" onclick="addNewDepartment()">Add Department</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    
+    <!-- ============================================ -->
+    <script>
+        
+        const departments = [
+            { code: 'BCSE', name: 'Computer Science & Engineering', type: 'ENGINEERING', enabled: true },
+            { code: 'BSEEE', name: 'Electrical & Electronic Engineering', type: 'ENGINEERING', enabled: true },
+            { code: 'BBA', name: 'Business Administration', type: 'BUSINESS', enabled: true },
+            { code: 'BSCE', name: 'Civil Engineering', type: 'ENGINEERING', enabled: true },
+            { code: 'BSME', name: 'Mechanical Engineering', type: 'ENGINEERING', enabled: true },
+            { code: 'BSN', name: 'Nursing', type: 'HEALTH', enabled: true },
+            { code: 'BATHM', name: 'Tourism & Hospitality Management', type: 'BUSINESS', enabled: true },
+            { code: 'BAEcon', name: 'Economics', type: 'ARTS', enabled: true },
+            { code: 'BAENG', name: 'English', type: 'ARTS', enabled: true },
+            { code: 'BSAg', name: 'Agriculture', type: 'SCIENCE', enabled: true }
+        ];
+
+        const STORAGE_KEY = 'ishare_departments';
+
+        
+        function loadDepartments() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+                if (saved && Array.isArray(saved) && saved.length > 0) {
+                    saved.forEach((s) => {
+                        const existing = departments.find(d => d.code === s.code);
+                        if (existing) {
+                            existing.enabled = s.enabled !== false;
+                            if (s.name) existing.name = s.name;
+                            if (s.type) existing.type = s.type;
+                        } else if (s.code) {
+                            departments.push({ code: s.code, name: s.name || s.code, type: s.type || 'OTHER', enabled: s.enabled !== false });
+                        }
+                    });
+                }
+                saveDepartments();
+            } catch { saveDepartments(); }
+        }
+
+        
+        function saveDepartments() { localStorage.setItem(STORAGE_KEY, JSON.stringify(departments)); }
+
+        
+        function toggleDepartment(index) {
+            departments[index].enabled = !departments[index].enabled;
+            saveDepartments();
+            renderDepartments();
+        }
+
+        
+        function openNewDeptModal() {
+            const modal = document.getElementById('newDeptModal');
+            if (!modal) { console.error('Modal element not found'); return; }
+            try {
+                modal.classList.add('show');
+                const codeInput = document.getElementById('newDeptCode');
+                const nameInput = document.getElementById('newDeptName');
+                const typeSelect = document.getElementById('newDeptType');
+                if (codeInput) codeInput.value = '';
+                if (nameInput) nameInput.value = '';
+                if (typeSelect) typeSelect.value = 'ENGINEERING';
+                setTimeout(() => { if (codeInput) codeInput.focus(); }, 100);
+            } catch (e) { console.error('Error opening modal:', e); }
+        }
+
+        function closeNewDeptModal() { document.getElementById('newDeptModal').classList.remove('show'); }
+
+        
+        function addNewDepartment() {
+            const code = document.getElementById('newDeptCode').value.trim().toUpperCase();
+            const name = document.getElementById('newDeptName').value.trim();
+            const type = document.getElementById('newDeptType').value;
+            if (!code) { alert('Please enter a department code'); return; }
+            if (!name) { alert('Please enter a department name'); return; }
+            if (departments.find(d => d.code === code)) { alert('A department with this code already exists'); return; }
+            departments.push({ code, name, type, enabled: true });
+            saveDepartments();
+            renderDepartments();
+            closeNewDeptModal();
+        }
+
+        
+        function renderDepartments() {
+            const grid = document.getElementById('deptGrid');
+            if (!grid) return;
+            grid.innerHTML = departments.map((dept, i) => `
+                <div class="dept-card">
+                    <div class="dept-card-header">
+                        <div class="dept-identity">
+                            <div class="dept-badge">${dept.code}</div>
+                            <div>
+                                <div class="dept-name">${dept.name}</div>
+                                <div class="dept-sub">${dept.code} Dept.</div>
+                            </div>
+                        </div>
+                        <div class="dept-actions">
+                            <span class="dept-type-badge">${dept.type}</span>
+                            <div style="position:relative;">
+                                <button class="dept-menu-btn" title="More options" type="button" onclick="toggleDeptMenu(event, ${i})">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                                </button>
+                                <div class="dept-menu-dropdown" id="deptMenu-${i}">
+                                    <button class="dept-menu-item" type="button" onclick="editDepartment(${i})">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                                        Edit Department
+                                    </button>
+                                    <button class="dept-menu-item" type="button" onclick="duplicateDepartment(${i})">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                        Duplicate
+                                    </button>
+                                    <button class="dept-menu-item" type="button" onclick="toggleDepartment(${i}); closeAllDeptMenus();">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                        ${dept.enabled ? 'Disable' : 'Enable'}
+                                    </button>
+                                    <div class="dept-menu-divider"></div>
+                                    <button class="dept-menu-item danger" type="button" onclick="deleteDepartment(${i})">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dept-controls">
+                        <div class="dept-control-row">
+                            <div class="dept-control-info">
+                                <div class="dept-control-title">Department Status</div>
+                                <div class="dept-control-desc">${dept.enabled ? 'Students can select this department during registration' : 'This department is hidden from registration'}</div>
+                            </div>
+                            <button class="toggle ${dept.enabled ? 'active' : ''}" id="toggle-dept-${i}" type="button" onclick="toggleDepartment(${i})">
+                                <span class="toggle-knob"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="dept-footer">
+                        <span class="dept-policy">Code: ${dept.code}</span>
+                        <span class="dept-status">
+                            <span class="status-dot"></span>
+                            ${dept.enabled ? 'Enabled' : 'Disabled'}
+                        </span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleDeptMenu(event, index) {
+            event.stopPropagation();
+            closeAllDeptMenus();
+            const menu = document.getElementById('deptMenu-' + index);
+            if (menu) menu.classList.add('show');
+        }
+
+        function closeAllDeptMenus() {
+            document.querySelectorAll('.dept-menu-dropdown').forEach(m => m.classList.remove('show'));
+        }
+
+        function editDepartment(index) {
+            closeAllDeptMenus();
+            const dept = departments[index];
+            const newName = prompt('Edit department name:', dept.name);
+            if (newName === null) return;
+            const trimmed = newName.trim();
+            if (!trimmed) { alert('Department name cannot be empty'); return; }
+            dept.name = trimmed;
+            saveDepartments();
+            renderDepartments();
+        }
+
+        function duplicateDepartment(index) {
+            closeAllDeptMenus();
+            const dept = departments[index];
+            const suffix = prompt('Duplicate department code suffix:', '2');
+            if (suffix === null) return;
+            const newCode = (dept.code + '-' + suffix.trim()).toUpperCase();
+            if (departments.find(d => d.code === newCode)) { alert('A department with this code already exists'); return; }
+            departments.push({ code: newCode, name: dept.name + ' (Copy)', type: dept.type, enabled: true });
+            saveDepartments();
+            renderDepartments();
+        }
+
+        function deleteDepartment(index) {
+            closeAllDeptMenus();
+            const dept = departments[index];
+            if (!confirm('Delete department "' + dept.name + '"? This cannot be undone.')) return;
+            departments.splice(index, 1);
+            saveDepartments();
+            renderDepartments();
+        }
+
+        
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dept-actions')) closeAllDeptMenus();
+        });
+
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') { closeNewDeptModal(); closeAllDeptMenus(); }
+        });
+
+        
+        function initNotifications() {
+            const STORAGE_KEY = 'ishare_notifications';
+            const notificationBtn = document.getElementById('notificationBtn');
+            const notificationBadge = document.getElementById('notificationBadge');
+            const notificationDropdown = document.getElementById('notificationDropdown');
+            const notificationList = document.getElementById('notificationList');
+            const markAllReadBtn = document.getElementById('markAllRead');
+            const deleteAllBtn = document.getElementById('deleteAllNotifications');
+            const notificationWrapper = document.getElementById('notificationWrapper');
+
+            function getNotifications() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; } }
+            function saveNotifications(notifications) { localStorage.setItem(STORAGE_KEY, JSON.stringify(notifications)); }
+            function getUnreadCount(notifications) { return notifications.filter(n => !n.read).length; }
+            function updateBadge() {
+                const notifications = getNotifications();
+                const unreadCount = getUnreadCount(notifications);
+                if (unreadCount > 0) { notificationBadge.textContent = unreadCount > 99 ? '99+' : unreadCount; notificationBadge.style.display = 'inline-flex'; }
+                else { notificationBadge.style.display = 'none'; }
+            }
+            function formatTime(timestamp) {
+                const diff = Date.now() - timestamp;
+                const minutes = Math.floor(diff / 60000);
+                if (minutes < 1) return 'Just now';
+                if (minutes < 60) return minutes + 'm ago';
+                const hours = Math.floor(minutes / 60);
+                if (hours < 24) return hours + 'h ago';
+                const days = Math.floor(hours / 24);
+                return days + 'd ago';
+            }
+            function renderNotifications() {
+                const notifications = getNotifications();
+                if (notifications.length === 0) { notificationList.innerHTML = '<div class="notification-empty">No notifications yet.</div>'; return; }
+                notificationList.innerHTML = notifications.slice(0, 20).map(n => {
+                    const iconMap = { system: 'âš™', user: 'ðŸ‘¤', alert: 'âš ', info: 'â„¹' };
+                    const icon = iconMap[n.type] || 'ðŸ””';
+                    return `<div class="notification-item ${n.read ? '' : 'unread'}" data-id="${n.id}">
+                        <div class="notification-icon ${n.type}">${icon}</div>
+                        <div class="notification-body">
+                            <div class="notification-title">${n.title}</div>
+                            <div class="notification-message">${n.message}</div>
+                            <div class="notification-time">${formatTime(n.time)}</div>
+                        </div>
+                        <button class="notification-delete" data-id="${n.id}" title="Delete notification" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                        </button>
+                    </div>`;
+                }).join('');
+
+                notificationList.querySelectorAll('.notification-item').forEach(item => {
+                    item.addEventListener('click', function(e) {
+                        if (e.target.closest('.notification-delete')) return;
+                        const id = this.getAttribute('data-id');
+                        const notifications = getNotifications();
+                        const target = notifications.find(n => n.id === id);
+                        if (target && !target.read) { target.read = true; saveNotifications(notifications); updateBadge(); this.classList.remove('unread'); }
+                    });
+                });
+                notificationList.querySelectorAll('.notification-delete').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const id = this.getAttribute('data-id');
+                        let notifications = getNotifications();
+                        notifications = notifications.filter(n => n.id !== id);
+                        saveNotifications(notifications);
+                        updateBadge();
+                        renderNotifications();
+                    });
+                });
+            }
+            function deleteAllNotifications() { saveNotifications([]); updateBadge(); renderNotifications(); }
+            function toggleDropdown(e) { e.stopPropagation(); const isShown = notificationDropdown.classList.contains('show'); if (isShown) { notificationDropdown.classList.remove('show'); } else { renderNotifications(); notificationDropdown.classList.add('show'); } }
+            function closeDropdown() { notificationDropdown.classList.remove('show'); }
+            function markAllAsRead() {
+                const notifications = getNotifications(); let changed = false;
+                notifications.forEach(n => { if (!n.read) { n.read = true; changed = true; } });
+                if (changed) { saveNotifications(notifications); updateBadge(); renderNotifications(); }
+            }
+
+            if (notificationBtn) notificationBtn.addEventListener('click', toggleDropdown);
+            if (markAllReadBtn) markAllReadBtn.addEventListener('click', function(e) { e.stopPropagation(); markAllAsRead(); });
+            if (deleteAllBtn) deleteAllBtn.addEventListener('click', function(e) { e.stopPropagation(); if (confirm('Delete all notifications? This cannot be undone.')) { deleteAllNotifications(); } });
+            document.addEventListener('click', function(e) { if (!notificationWrapper.contains(e.target)) { closeDropdown(); } });
+
+            let notifications = getNotifications();
+            if (notifications.length === 0) {
+                const accounts = JSON.parse(localStorage.getItem('ishare_accounts') || '[]');
+                const now = Date.now();
+                accounts.slice(0, 3).forEach((acc, index) => {
+                    notifications.push({ id: 'user-' + (acc.studentId || acc.id) + '-' + index, title: 'New user registered', message: `${acc.fullname} (${acc.email || 'no email'}) joined as ${acc.accountType || 'Student'}.`, type: 'user', time: now - 1000 * 60 * (10 + index * 5), read: false });
+                });
+                if (notifications.length === 0) {
+                    notifications.push({ id: 'system-1', title: 'No new registrations yet', message: 'When a new user registers, their details will appear here automatically.', type: 'system', time: now - 1000 * 60 * 30, read: false });
+                }
+                saveNotifications(notifications);
+            }
+            updateBadge();
+        }
+
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDepartments();
+            renderDepartments();
+            initNotifications();
+
+            
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.getElementById('mobileSidebarOverlay');
+
+            function closeMobileSidebar() {
+                if (sidebar) sidebar.classList.remove('open');
+                if (overlay) overlay.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    if (sidebar && sidebar.classList.contains('open')) { closeMobileSidebar(); }
+                    else { if (sidebar) sidebar.classList.add('open'); if (overlay) overlay.classList.add('show'); document.body.style.overflow = 'hidden'; }
+                });
+            }
+            if (overlay) { overlay.addEventListener('click', closeMobileSidebar); }
+
+            document.querySelectorAll('.sidebar-nav .nav-item, .sidebar-bottom-item').forEach(function(item) {
+                item.addEventListener('click', function() { if (window.innerWidth <= 768) { closeMobileSidebar(); } });
+            });
+        });
+    </script>
+    <script src="../js/ai-assistant.js"></script>
+</body>
+</html>
+

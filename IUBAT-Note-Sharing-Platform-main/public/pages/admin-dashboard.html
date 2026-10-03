@@ -1,0 +1,670 @@
+<!-- ============================================================ -->
+<!-- admin-dashboard.html - iShare IUBAT Platform                          -->
+<!-- This page represents the UI for the admin-dashboard feature. -->
+<!-- ============================================================ -->
+
+﻿<!-- ============================================ -->
+<!-- Admin Dashboard - iShare IUBAT                -->
+
+<!-- ============================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - iShare IUBAT</title>
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="../css/admin-dashboard.css">
+</head>
+<body>
+    
+    <div class="dashboard-wrapper">
+
+        
+        <aside class="sidebar">
+            
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="sidebar-logo-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 9l10 7 10-7-10-7z"/><path d="M7 12l5 3.5 5-3.5"/><path d="M12 16v4"/><circle cx="12" cy="21" r="1"/></svg>
+                    </div>
+                    <div>
+                        <div class="sidebar-brand">iShare</div>
+                        <div class="sidebar-badge">IUBAT</div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Admin Governance</div>
+
+                
+                <button class="nav-item">
+                    <span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+                    Platform Overview
+                </button>
+
+                
+                <button class="nav-item" type="button" onclick="window.location.href='user-management.html'">
+                    <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+                    User Management
+                </button>
+
+                
+                <button class="nav-item" type="button" onclick="window.location.href='department-controls.html'">
+                    <span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                    Department Controls
+                </button>
+
+                
+                <button class="nav-item" type="button" onclick="window.location.href='announcement-management.html'">
+                    <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3z"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>
+                    Announcement Management
+                    <span class="nav-badge">0</span>
+                </button>
+
+                
+                <button class="nav-item" type="button" onclick="window.location.href='student-view.html'">
+                    <span class="nav-icon"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>
+                    Student View
+                    <span class="nav-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+                </button>
+            </nav>
+
+            
+            <div class="sidebar-footer">
+                <div class="sidebar-ai">
+                    <div class="sidebar-ai-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                    </div>
+                    <div>
+                        <div class="sidebar-ai-text">AI Gemma Assistant</div>
+                        <div class="sidebar-ai-sub">Online</div>
+                    </div>
+                </div>
+                <button class="sidebar-bottom-item" onclick="window.location.href='index.html'">
+                    <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    Log Out
+                </button>
+            </div>
+        </aside>
+
+        
+        <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay"></div>
+
+        
+        <main class="main-content">
+            
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="topbar-btn primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                        AI Assistant
+                    </button>
+                </div>
+                <div class="topbar-actions">
+                    
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Menu">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+
+                    
+                    <div class="notification-wrapper" id="notificationWrapper">
+                        <button class="topbar-icon-btn" id="notificationBtn" title="Notifications">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                            <span class="topbar-badge" id="notificationBadge" style="display:none;">0</span>
+                        </button>
+                        <div class="notification-dropdown" id="notificationDropdown">
+                            <div class="notification-header">
+                                <h3>Notifications</h3>
+                                <div class="notification-header-actions">
+                                    <button class="mark-all-read" id="markAllRead">Mark all as read</button>
+                                    <button class="delete-all" id="deleteAllNotifications">Delete all</button>
+                                </div>
+                            </div>
+                            <div class="notification-list" id="notificationList">
+                                <div class="notification-empty">No notifications yet.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="topbar-avatar" title="User Menu">SI</div>
+                </div>
+            </header>
+
+            
+            <div class="content-area">
+                
+                <div class="page-header">
+                    <h1 class="page-title">Platform Overview</h1>
+                    <p class="page-subtitle">High-level metrics and system health indicators.</p>
+                </div>
+
+                
+                <div class="stats-grid">
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-label">Total Active Users</span>
+                            <div class="stat-icon users"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                        </div>
+                        <div class="stat-value" id="activeUsers">0</div>
+                        <div class="stat-change" id="userChange" style="display:none;">
+                            <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+                            <span id="userChangeText">+0%</span>
+                        </div>
+                        <div class="stat-sub" id="userSub">No registered users yet</div>
+                    </div>
+
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-label">System Uptime</span>
+                            <div class="stat-icon uptime">
+                                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                        </div>
+                        <div class="stat-value" id="uptime">--</div>
+                        <div class="stat-sub" id="uptimeStatus" style="display:flex;align-items:center;gap:6px;margin-top:4px;">
+                            <span id="uptimeDot" style="width:8px;height:8px;background:#94a3b8;border-radius:50%;display:inline-block;"></span>
+                            <span id="uptimeText">Checking...</span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-label">Total Notes</span>
+                            <div class="stat-icon notes">
+                                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            </div>
+                        </div>
+                        <div class="stat-value" id="totalNotes">0</div>
+                        <div class="stat-sub" id="notesSub">No notes uploaded yet</div>
+                    </div>
+
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-label">Storage Utilization</span>
+                            <div class="stat-icon storage">
+                                <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                            </div>
+                        </div>
+                        <div class="stat-value" style="font-size:1.5rem;"><span id="storageUsed">0GB</span> <span style="font-size:1rem;color:#94a3b8;font-weight:500;">/ 10TB</span></div>
+                        <div class="storage-bar">
+                            <div class="storage-fill" id="storageFill" style="width:0%;"></div>
+                        </div>
+                        <div class="storage-info">
+                            <span class="storage-sub" id="storageSub">No data uploaded yet</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="dashboard-grid">
+                    
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Recent User Activity</h3>
+                            <a href="user-management.html" class="panel-link">View Full Directory
+                                <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </a>
+                        </div>
+                        <table class="activity-table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Department</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="activityTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    
+                    <div style="display:flex;flex-direction:column;gap:20px;">
+                        
+                        <div class="panel">
+                            <div class="panel-header">
+                                <h3 class="panel-title">Quick Actions</h3>
+                            </div>
+                            <div class="quick-actions">
+                                <button class="action-btn" id="exportAuthDataBtn">
+                                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                    Export Auth Data
+                                </button>
+                                <button class="action-btn" id="broadcastAnnouncementBtn">
+                                    <svg viewBox="0 0 24 24"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3z"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                                    Broadcast Announcement
+                                </button>
+                                <button class="action-btn" id="manageDeptAccessBtn">
+                                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                    Manage Dept. Access
+                                </button>
+                            </div>
+                        </div>
+
+                        
+                        <div class="panel">
+                            <div class="panel-header">
+                                <h3 class="panel-title">Security Audit Log</h3>
+                            </div>
+                            <div class="audit-log" id="auditLogContainer">
+                                <div id="auditEmptyState" style="text-align:center;color:#94a3b8;padding:24px 0;font-size:0.85rem;">No audit logs available yet.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ============================================ -->
+    
+    <!-- ============================================ -->
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const userId = localStorage.getItem('ishare_user_id');
+            const userType = localStorage.getItem('ishare_user_type');
+            const userName = localStorage.getItem('ishare_user_name');
+
+            
+            if (!userId || userType !== 'Admin') {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            
+            if (userName) {
+                const initials = userName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+                const avatar = document.querySelector('.topbar-avatar');
+                if (avatar) avatar.textContent = initials || 'U';
+            }
+
+            
+            const page = window.location.pathname.split('/').pop() || 'admin-dashboard.html';
+            const pageMap = {
+                'admin-dashboard.html': 'Platform Overview',
+                'user-management.html': 'User Management',
+                'department-controls.html': 'Department Controls',
+                'announcement-management.html': 'Announcement Management',
+                'student-view.html': 'Student View'
+            };
+            const activeText = pageMap[page] || 'Platform Overview';
+            document.querySelectorAll('.sidebar-nav .nav-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.textContent.trim().includes(activeText)) {
+                    item.classList.add('active');
+                }
+            });
+
+            
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.getElementById('mobileSidebarOverlay');
+
+            function openMobileSidebar() {
+                if (sidebar) sidebar.classList.add('open');
+                if (overlay) overlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMobileSidebar() {
+                if (sidebar) sidebar.classList.remove('open');
+                if (overlay) overlay.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    if (sidebar && sidebar.classList.contains('open')) { closeMobileSidebar(); }
+                    else { openMobileSidebar(); }
+                });
+            }
+            if (overlay) { overlay.addEventListener('click', closeMobileSidebar); }
+
+            
+            document.querySelectorAll('.sidebar-nav .nav-item, .sidebar-bottom-item').forEach(function(item) {
+                item.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) { closeMobileSidebar(); }
+                });
+            });
+
+            
+            function updateActiveUsersStats() {
+                const accounts = JSON.parse(localStorage.getItem('ishare_accounts') || '[]');
+                const activeAccounts = accounts.filter(a => a.status === 'active');
+                const deptSet = new Set(accounts.map(a => a.department).filter(Boolean));
+
+                const activeUsersEl = document.getElementById('activeUsers');
+                const userChange = document.getElementById('userChange');
+                const userChangeText = document.getElementById('userChangeText');
+                const userSub = document.getElementById('userSub');
+
+                if (activeUsersEl) activeUsersEl.textContent = activeAccounts.length.toLocaleString();
+
+                if (activeAccounts.length > 0) {
+                    if (userChange) userChange.style.display = 'flex';
+                    if (userChangeText) {
+                        const prevActive = parseInt(localStorage.getItem('ishare_prev_active') || '0', 10);
+                        const change = prevActive > 0 ? ((activeAccounts.length - prevActive) / prevActive) * 100 : 0;
+                        userChangeText.textContent = (change >= 0 ? '+' : '') + change.toFixed(1) + '%';
+                        localStorage.setItem('ishare_prev_active', activeAccounts.length.toString());
+                    }
+                    if (userSub) {
+                        const deptCount = deptSet.size;
+                        userSub.textContent = deptCount > 0 ? `Active across ${deptCount} ${deptCount === 1 ? 'department' : 'departments'}` : 'Active users found';
+                    }
+                } else {
+                    if (userChange) userChange.style.display = 'none';
+                    if (userSub) userSub.textContent = 'No registered users yet';
+                }
+            }
+
+            updateActiveUsersStats();
+            setInterval(updateActiveUsersStats, 5000);
+
+            
+            const notes = JSON.parse(localStorage.getItem('ishare_notes') || '[]');
+            const totalNotesEl = document.getElementById('totalNotes');
+            const notesSubEl = document.getElementById('notesSub');
+            if (totalNotesEl) totalNotesEl.textContent = notes.length.toLocaleString();
+            if (notesSubEl) notesSubEl.textContent = notes.length > 0 ? `Across ${new Set(notes.map(n => n.department).filter(Boolean)).size} departments` : 'No notes uploaded yet';
+
+            
+            let totalStorageBytes = 0;
+            notes.forEach(function(n) {
+                if (n.url && n.url.startsWith('data:')) { totalStorageBytes += n.url.length * 2; }
+            });
+            const totalStorageMB = (totalStorageBytes / (1024 * 1024)).toFixed(2);
+            const storageUsedEl = document.getElementById('storageUsed');
+            const storageSubEl = document.getElementById('storageSub');
+            const storageFillEl = document.getElementById('storageFill');
+            const storageTB = 10 * 1024;
+            const storagePercent = totalStorageMB > 0 ? Math.min((totalStorageMB / storageTB) * 100, 100) : 0;
+            if (storageUsedEl) storageUsedEl.textContent = totalStorageMB + 'MB';
+            if (storageSubEl) storageSubEl.textContent = totalStorageMB > 0 ? `${notes.length} notes uploaded` : 'No data uploaded yet';
+            if (storageFillEl) storageFillEl.style.width = storagePercent + '%';
+
+            
+            const STORAGE_KEY = 'ishare_notifications';
+            const notificationBtn = document.getElementById('notificationBtn');
+            const notificationBadge = document.getElementById('notificationBadge');
+            const notificationDropdown = document.getElementById('notificationDropdown');
+            const notificationList = document.getElementById('notificationList');
+            const markAllReadBtn = document.getElementById('markAllRead');
+            const deleteAllBtn = document.getElementById('deleteAllNotifications');
+            const notificationWrapper = document.getElementById('notificationWrapper');
+
+            function isUserOnline(userId) {
+                const onlineUserId = localStorage.getItem('ishare_user_id');
+                const onlineStatus = localStorage.getItem('ishare_user_online');
+                const lastSeen = localStorage.getItem('ishare_user_last_seen');
+                if (!onlineUserId || onlineUserId !== userId) {
+                    return false;
+                }
+                if (onlineStatus === 'true' && lastSeen) {
+                    const diff = Date.now() - parseInt(lastSeen, 10);
+                    return diff < 60000;
+                }
+                return false;
+            }
+
+            
+            function getNotifications() {
+                try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; }
+            }
+            function saveNotifications(notifications) { localStorage.setItem(STORAGE_KEY, JSON.stringify(notifications)); }
+
+            
+            function generateDemoNotifications() {
+                const accounts = JSON.parse(localStorage.getItem('ishare_accounts') || '[]');
+                const notifications = [];
+                const now = Date.now();
+                accounts.slice(0, 3).forEach((acc, index) => {
+                    notifications.push({
+                        id: 'user-' + acc.id + '-' + index,
+                        title: 'New user registered',
+                        message: `${acc.fullname} (${acc.email || 'no email'}) joined as ${acc.accountType || 'Student'}.`,
+                        type: 'user',
+                        time: now - 1000 * 60 * (10 + index * 5),
+                        read: false
+                    });
+                });
+                if (notifications.length === 0) {
+                    notifications.push({
+                        id: 'system-1', title: 'No new registrations yet',
+                        message: 'When a new user registers, their details will appear here automatically.',
+                        type: 'system', time: now - 1000 * 60 * 30, read: false
+                    });
+                }
+                return notifications;
+            }
+
+            
+            function ensureNotifications() {
+                let notifications = getNotifications();
+                if (notifications.length === 0) { notifications = generateDemoNotifications(); saveNotifications(notifications); }
+                return notifications;
+            }
+
+            
+            function getUnreadCount(notifications) { return notifications.filter(n => !n.read).length; }
+
+            
+            function updateBadge() {
+                const notifications = getNotifications();
+                const unreadCount = getUnreadCount(notifications);
+                if (unreadCount > 0) { notificationBadge.textContent = unreadCount > 99 ? '99+' : unreadCount; notificationBadge.style.display = 'inline-flex'; }
+                else { notificationBadge.style.display = 'none'; }
+            }
+
+            
+            function formatTime(timestamp) {
+                const diff = Date.now() - timestamp;
+                const minutes = Math.floor(diff / 60000);
+                if (minutes < 1) return 'Just now';
+                if (minutes < 60) return minutes + 'm ago';
+                const hours = Math.floor(minutes / 60);
+                if (hours < 24) return hours + 'h ago';
+                const days = Math.floor(hours / 24);
+                return days + 'd ago';
+            }
+
+            
+            function renderNotifications() {
+                const notifications = getNotifications();
+                if (notifications.length === 0) { notificationList.innerHTML = '<div class="notification-empty">No notifications yet.</div>'; return; }
+                notificationList.innerHTML = notifications.slice(0, 20).map(n => {
+                    const iconMap = { system: 'âš™', user: 'ðŸ‘¤', alert: 'âš ', info: 'â„¹' };
+                    const icon = iconMap[n.type] || 'ðŸ””';
+                    return `<div class="notification-item ${n.read ? '' : 'unread'}" data-id="${n.id}">
+                        <div class="notification-icon ${n.type}">${icon}</div>
+                        <div class="notification-body">
+                            <div class="notification-title">${n.title}</div>
+                            <div class="notification-message">${n.message}</div>
+                            <div class="notification-time">${formatTime(n.time)}</div>
+                        </div>
+                        <button class="notification-delete" data-id="${n.id}" title="Delete notification">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                        </button>
+                    </div>`;
+                }).join('');
+
+                notificationList.querySelectorAll('.notification-item').forEach(item => {
+                    item.addEventListener('click', function(e) {
+                        if (e.target.closest('.notification-delete')) return;
+                        const id = this.getAttribute('data-id');
+                        const notifications = getNotifications();
+                        const target = notifications.find(n => n.id === id);
+                        if (target && !target.read) { target.read = true; saveNotifications(notifications); updateBadge(); this.classList.remove('unread'); }
+                    });
+                });
+                notificationList.querySelectorAll('.notification-delete').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation(); const id = this.getAttribute('data-id'); deleteNotification(id);
+                    });
+                });
+            }
+
+            function deleteNotification(id) { let notifications = getNotifications(); notifications = notifications.filter(n => n.id !== id); saveNotifications(notifications); updateBadge(); renderNotifications(); }
+            function deleteAllNotifications() { saveNotifications([]); updateBadge(); renderNotifications(); }
+
+            function toggleDropdown(e) {
+                e.stopPropagation();
+                const isShown = notificationDropdown.classList.contains('show');
+                if (isShown) { notificationDropdown.classList.remove('show'); }
+                else { renderNotifications(); notificationDropdown.classList.add('show'); }
+            }
+            function closeDropdown() { notificationDropdown.classList.remove('show'); }
+
+            function markAllAsRead() {
+                const notifications = getNotifications(); let changed = false;
+                notifications.forEach(n => { if (!n.read) { n.read = true; changed = true; } });
+                if (changed) { saveNotifications(notifications); updateBadge(); renderNotifications(); }
+            }
+
+            if (notificationBtn) notificationBtn.addEventListener('click', toggleDropdown);
+            if (markAllReadBtn) markAllReadBtn.addEventListener('click', function(e) { e.stopPropagation(); markAllAsRead(); });
+            if (deleteAllBtn) deleteAllBtn.addEventListener('click', function(e) { e.stopPropagation(); if (confirm('Delete all notifications? This cannot be undone.')) { deleteAllNotifications(); } });
+            document.addEventListener('click', function(e) { if (!notificationWrapper.contains(e.target)) { closeDropdown(); } });
+
+            ensureNotifications();
+            updateBadge();
+
+            
+            const sessionStart = Date.now();
+            const uptimeEl = document.getElementById('uptime');
+            const uptimeDot = document.getElementById('uptimeDot');
+            const uptimeText = document.getElementById('uptimeText');
+
+            function checkSystemHealth() {
+                const checks = []; let passed = 0;
+                try { localStorage.setItem('ishare_health_check', 'ok'); localStorage.removeItem('ishare_health_check'); checks.push({ name: 'LocalStorage', status: 'pass' }); passed++; }
+                catch (e) { checks.push({ name: 'LocalStorage', status: 'fail' }); }
+                if (document.readyState === 'complete' || document.readyState === 'interactive') { checks.push({ name: 'Page Load', status: 'pass' }); passed++; }
+                else { checks.push({ name: 'Page Load', status: 'fail' }); }
+                const accounts = JSON.parse(localStorage.getItem('ishare_accounts') || '[]');
+                if (Array.isArray(accounts)) { checks.push({ name: 'User Data', status: 'pass' }); passed++; }
+                else { checks.push({ name: 'User Data', status: 'fail' }); }
+                const notes = JSON.parse(localStorage.getItem('ishare_notes') || '[]');
+                if (Array.isArray(notes)) { checks.push({ name: 'Notes Data', status: 'pass' }); passed++; }
+                else { checks.push({ name: 'Notes Data', status: 'fail' }); }
+
+                const healthPercent = Math.round((passed / checks.length) * 100);
+                const allOperational = passed === checks.length;
+                if (uptimeEl) uptimeEl.textContent = healthPercent + '.9%';
+                if (uptimeDot) uptimeDot.style.background = allOperational ? '#16a34a' : '#dc2626';
+                if (uptimeText) uptimeText.textContent = allOperational ? 'All Systems Operational' : passed + '/' + checks.length + ' Systems Healthy';
+            }
+
+            checkSystemHealth();
+            setInterval(checkSystemHealth, 30000); 
+
+            // Auto-refresh recent activity every 10 seconds
+            function renderRecentUserActivity() {
+                const tableBody = document.getElementById('activityTableBody');
+                if (!tableBody) return;
+                const accounts = JSON.parse(localStorage.getItem('ishare_accounts') || '[]');
+                if (accounts.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#94a3b8;padding:24px;">No registered users yet.</td></tr>';
+                    return;
+                }
+                const onlineAccounts = accounts.filter(acc => isUserOnline(acc.studentId || acc.id));
+                if (onlineAccounts.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#94a3b8;padding:24px;">No users online right now.</td></tr>';
+                    return;
+                }
+                tableBody.innerHTML = onlineAccounts.slice(0, 8).map(acc => {
+                    const initials = acc.fullname.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+                    const roleClass = (acc.accountType || 'student').toLowerCase();
+                    const deptShort = acc.department || 'N/A';
+                    const userId = encodeURIComponent(acc.studentId || acc.id || '');
+                    return `<tr>
+                        <td>
+                            <div class="user-cell">
+                                <div class="user-avatar">${initials}</div>
+                                <div class="user-info">
+                                    <span class="user-name">${acc.fullname}</span>
+                                    <span class="user-email">${acc.email || ''}</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span style="font-weight:500;">â€¢ ${deptShort}</span></td>
+                        <td><span class="role-tag ${roleClass}">${acc.accountType || 'Student'}</span></td>
+                        <td><span class="status-tag online"><span class="status-dot"></span>ONLINE</span></td>
+                        <td><a href="user-management.html?user=${userId}" class="manage-link">Manage â†’</a></td>
+                    </tr>`;
+                }).join('');
+            }
+
+            renderRecentUserActivity();
+            setInterval(renderRecentUserActivity, 10000);
+
+            
+            function addAuditLog(message, type) {
+                type = type || 'info';
+                const container = document.getElementById('auditLogContainer');
+                const emptyState = document.getElementById('auditEmptyState');
+                if (emptyState) emptyState.style.display = 'none';
+                const time = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                const logEntry = document.createElement('div');
+                logEntry.className = 'audit-log-entry';
+                logEntry.innerHTML = '<span class="audit-log-time">' + time + '</span><span class="audit-log-type ' + type + '">' + type.toUpperCase() + '</span><span class="audit-log-msg">' + message + '</span>';
+                container.insertBefore(logEntry, container.firstChild);
+            }
+
+            
+            const exportBtn = document.getElementById('exportAuthDataBtn');
+            if (exportBtn) {
+                exportBtn.addEventListener('click', function() {
+                    const accounts = JSON.parse(localStorage.getItem('ishare_accounts') || '[]');
+                    if (accounts.length === 0) { addAuditLog('Export failed: No user data available', 'error'); return; }
+                    const blob = new Blob([JSON.stringify(accounts, null, 2)], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url; a.download = 'ishare_auth_data_' + new Date().toISOString().slice(0, 10) + '.json';
+                    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+                    addAuditLog('Exported ' + accounts.length + ' user records', 'success');
+                });
+            }
+
+            const broadcastBtn = document.getElementById('broadcastAnnouncementBtn');
+            if (broadcastBtn) {
+                broadcastBtn.addEventListener('click', function() {
+                    addAuditLog('Navigating to Announcement Management', 'info');
+                    window.location.href = 'announcement-management.html';
+                });
+            }
+
+            const manageDeptBtn = document.getElementById('manageDeptAccessBtn');
+            if (manageDeptBtn) {
+                manageDeptBtn.addEventListener('click', function() {
+                    addAuditLog('Navigating to Department Controls', 'info');
+                    window.location.href = 'department-controls.html';
+                });
+            }
+
+            addAuditLog('Admin dashboard loaded successfully', 'success');
+        })();
+    </script>
+    <script src="../js/ai-assistant.js"></script>
+</body>
+</html>
+

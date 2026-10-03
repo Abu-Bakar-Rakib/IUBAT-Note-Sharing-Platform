@@ -1,0 +1,207 @@
+/* ============================================================ */
+/* department-controls.css - iShare IUBAT Platform                            */
+/* Stylesheet for the department-controls view.                    */
+/* ============================================================ */
+
+/* ========================================================= */
+/* Department Controls CSS - iShare IUBAT                    */
+/*                                                          */
+
+/*                                                          */
+
+
+
+
+/*                                                          */
+
+
+
+
+
+/*                                                          */
+
+
+/*    identity: badge + name + sub, actions: type badge + menu btn */
+
+/*                                                          */
+
+
+
+
+/*                                                          */
+
+
+
+/*    toggle.active: bg #0f172a (dark), knob translateX 18px       */
+
+/*                                                          */
+
+
+
+
+/*                                                          */
+
+
+
+
+
+
+/*                                                          */
+
+/*    overlay: fixed, inset 0, bg rgba dark + backdrop blur         */
+/*    card: white, radius 16px, max-width 420px, shadow             */
+/*    form: input + select (custom arrow) + submit/cancel           */
+/* ========================================================= */
+
+
+
+.dept-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+
+/* white bg, border 1px, radius 14px, padding 22px 24px, shadow     */
+.dept-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 22px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.02), 0 2px 8px rgba(0,0,0,0.03); transition: box-shadow 0.2s; }
+.dept-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03); }
+
+
+/* flex row, justify-content: space-between, margin-bottom 18px    */
+.dept-card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 18px; }
+
+
+
+.dept-identity { display: flex; align-items: center; gap: 12px; }
+
+
+/* min-width 42px, min-height 42px, padding 6px 12px, radius 10px */
+/* bg #f1f5f9, border #e2e8f0, font 0.68rem, weight 800, slate    */
+
+
+.dept-badge { min-width: 42px; min-height: 42px; padding: 6px 12px; border-radius: 10px; background: #f1f5f9; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 800; color: #475569; flex-shrink: 0; letter-spacing: 0.3px; white-space: normal; word-break: break-word; text-align: center; line-height: 1.2; }
+
+
+.dept-name { font-size: 0.95rem; font-weight: 700; color: #0f172a; letter-spacing: -0.2px; line-height: 1.3; }
+
+
+.dept-sub { font-size: 0.72rem; color: #94a3b8; font-weight: 500; margin-top: 2px; }
+
+
+.dept-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+
+/* uppercase, letter-spacing 0.8px, bg #f1f5f9, radius 6px        */
+.dept-type-badge { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.8px; color: #64748b; background: #f1f5f9; border: 1px solid #e2e8f0; padding: 5px 12px; border-radius: 6px; text-transform: uppercase; white-space: normal; word-break: break-word; line-height: 1.2; }
+
+
+/* 32x32px, radius 8px, border 1px, hover: bg #f8fafc             */
+.dept-menu-btn { width: 32px; height: 32px; border-radius: 8px; border: 1px solid #e2e8f0; background: #ffffff; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; color: #94a3b8; transition: all 0.2s; }
+.dept-menu-btn:hover { background: #f8fafc; color: #0f172a; border-color: #cbd5e1; }
+.dept-menu-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+
+
+.dept-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 16px 0; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; margin-bottom: 16px; }
+.dept-stat { display: flex; flex-direction: column; gap: 4px; }
+.dept-stat-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; color: #94a3b8; text-transform: uppercase; }
+.dept-stat-value { font-size: 1.1rem; font-weight: 700; color: #0f172a; letter-spacing: -0.3px; display: flex; align-items: baseline; gap: 6px; }
+.dept-stat-change { font-size: 0.72rem; font-weight: 600; }
+
+
+
+.dept-controls { display: flex; flex-direction: column; gap: 14px; margin-bottom: 16px; }
+.dept-control-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.dept-control-info { flex: 1; min-width: 0; }
+.dept-control-title { font-size: 0.82rem; font-weight: 600; color: #0f172a; margin-bottom: 2px; }
+.dept-control-desc { font-size: 0.72rem; color: #64748b; line-height: 1.4; }
+
+
+/* 44x26px, radius 13px, bg #e2e8f0, knob 20px white               */
+
+.toggle { width: 44px; height: 26px; border-radius: 13px; border: none; background: #e2e8f0; cursor: pointer; position: relative; padding: 0; transition: background 0.25s ease; flex-shrink: 0; }
+.toggle.active { background: #0f172a; }
+.toggle-knob { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.15); transition: transform 0.25s ease; pointer-events: none; }
+.toggle.active .toggle-knob { transform: translateX(18px); }
+
+
+/* flex between, padding-top 12px, border-top #f8fafc              */
+.dept-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid #f8fafc; }
+.dept-policy { font-size: 0.72rem; color: #64748b; font-weight: 500; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+.dept-status { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; color: #16a34a; font-weight: 600; }
+.dept-status .status-dot { width: 6px; height: 6px; border-radius: 50%; background: #16a34a; }
+
+
+/* absolute, top calc(100%+6px), right 0, bg white, radius 12px    */
+
+.dept-menu-dropdown { position: absolute; top: calc(100% + 6px); right: 0; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 10px 30px rgba(15,23,42,0.12), 0 2px 8px rgba(15,23,42,0.06); z-index: 250; display: none; flex-direction: column; min-width: 200px; padding: 6px; }
+.dept-menu-dropdown.show { display: flex; }
+
+
+/* flex row, gap 10px, padding 10px 12px, radius 8px               */
+.dept-menu-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: none; background: transparent; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 500; color: #334155; border-radius: 8px; transition: all 0.15s; width: 100%; text-align: left; }
+.dept-menu-item:hover { background: #f8fafc; color: #0f172a; }
+.dept-menu-item svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; opacity: 0.7; }
+
+/* danger variant: red text, hover bg #fef2f2                        */
+.dept-menu-item.danger { color: #dc2626; }
+.dept-menu-item.danger:hover { background: #fef2f2; color: #dc2626; }
+
+
+
+.dept-menu-divider { height: 1px; background: #f1f5f9; margin: 4px 6px; }
+
+
+/* overlay: fixed, inset 0, bg rgba(15,23,42,0.4), backdrop blur 4px */
+.modal-overlay { position: fixed; inset: 0; height: 100%; background: rgba(15,23,42,0.4); backdrop-filter: blur(4px); z-index: 300; display: none; align-items: center; justify-content: center; padding: 20px; }
+.modal-overlay.show { display: flex; }
+
+/* card: white, border 1px, radius 16px, padding 24px, shadow       */
+.modal-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; width: 100%; max-width: 420px; box-shadow: 0 20px 60px rgba(15,23,42,0.2); }
+
+
+.modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.modal-title { font-size: 1.05rem; font-weight: 700; color: #0f172a; }
+
+
+.modal-close { width: 32px; height: 32px; border-radius: 8px; border: 1px solid #e2e8f0; background: #ffffff; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; color: #64748b; transition: all 0.15s; }
+.modal-close:hover { background: #f8fafc; color: #0f172a; border-color: #cbd5e1; }
+.modal-close svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+
+.modal-body { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
+
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-size: 0.82rem; font-weight: 600; color: #334155; }
+
+
+/* width 100%, padding 10px 14px, border 1.5px, radius 10px         */
+/* bg #f8fafc, font Inter, custom arrow for select (data URI SVG)   */
+.form-input, .form-select { width: 100%; padding: 10px 14px; border: 1.5px solid #e2e8f0; border-radius: 10px; background: #f8fafc; font-family: 'Inter', sans-serif; font-size: 0.88rem; color: #0f172a; outline: none; transition: all 0.2s; }
+.form-input:focus, .form-select:focus { border-color: #0f172a; background: #ffffff; box-shadow: 0 0 0 3px rgba(15,23,42,0.06); }
+.form-select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; cursor: pointer; }
+
+
+.modal-footer { display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
+
+
+
+/* ---------- 1200px ---------- */
+
+@media (max-width: 1200px) {
+    .dept-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- 1024px ---------- */
+
+@media (max-width: 1024px) {
+    .dept-stats { grid-template-columns: 1fr 1fr; }
+    .dept-card-header { flex-direction: column; gap: 10px; }
+    .dept-actions { width: 100%; justify-content: space-between; }
+}
+
+/* ---------- 768px ---------- */
+
+@media (max-width: 768px) {
+    .dept-stats { grid-template-columns: 1fr; gap: 10px; }
+    .dept-control-row { flex-direction: column; align-items: flex-start; }
+    .dept-actions { width: 100%; }
+    .toggle { align-self: flex-end; }
+}

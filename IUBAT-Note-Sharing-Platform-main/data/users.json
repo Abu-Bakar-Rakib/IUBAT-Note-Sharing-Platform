@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "studentId": "123456",
+    "fullname": "System Admin",
+    "email": "admin@ishare.com",
+    "department": "Administration",
+    "password": "$2a$10$lrd/KiZjivzkvwk0G1KGHuYdSs1GE4Q0TG.zOEnHuvWc5XYXyBSuq",
+    "accountType": "admin",
+    "status": "active",
+    "createdAt": "2026-10-03T14:58:08.682Z"
+  }
+]

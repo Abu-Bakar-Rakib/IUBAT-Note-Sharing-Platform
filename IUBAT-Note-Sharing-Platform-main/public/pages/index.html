@@ -1,0 +1,228 @@
+<!-- ============================================================ -->
+<!-- index.html - iShare IUBAT Platform                          -->
+<!-- This page represents the UI for the index feature. -->
+<!-- ============================================================ -->
+
+﻿<!-- ============================================ -->
+<!-- iShare - IUBAT Note Sharing Platform         -->
+
+<!-- ============================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iShare - IUBAT Note Sharing Platform</title>
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    
+    <style>
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #1a1a1a; }
+
+        
+        .login-container { width: 100%; max-width: 440px; padding: 20px; }
+
+        
+        .login-card { background: #ffffff; border: 1px solid #eef0f3; border-radius: 24px; padding: 48px 40px 40px; box-shadow: 0 1px 2px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.04), 0 12px 32px rgba(0,0,0,0.03); text-align: center; }
+
+        
+        .logo-icon { width: 52px; height: 52px; background: #0f172a; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; box-shadow: 0 4px 12px rgba(15,23,42,0.12); }
+        .logo-icon svg { width: 26px; height: 26px; fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+        
+        .brand-name { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; font-size: 2.2rem; font-weight: 700; color: #0f172a; letter-spacing: -0.5px; margin-bottom: 4px; }
+
+        
+        .brand-subtitle { font-size: 0.7rem; font-weight: 700; letter-spacing: 2.5px; color: #475569; text-transform: uppercase; margin-bottom: 24px; }
+
+        
+        .tab-container { display: flex; background: #f1f5f9; border-radius: 10px; padding: 3px; margin-bottom: 24px; gap: 3px; border: 1px solid #e2e8f0; }
+
+        
+        .tab { flex: 1; padding: 9px 16px; border: none; background: transparent; border-radius: 8px; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.85rem; font-weight: 600; color: #64748b; cursor: pointer; transition: all 0.2s; }
+        .tab.active { background: #ffffff; color: #0f172a; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+
+        
+        .form-group { margin-bottom: 16px; text-align: left; }
+
+        
+        .form-label { display: block; font-size: 0.82rem; font-weight: 600; color: #334155; margin-bottom: 6px; letter-spacing: -0.1px; }
+
+        
+        .input-wrapper { position: relative; }
+
+        
+        .input-icon { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; display: flex; align-items: center; justify-content: center; pointer-events: none; opacity: 0.4; }
+        .input-icon svg { width: 15px; height: 15px; fill: none; stroke: #475569; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+        
+        .form-input { width: 100%; padding: 12px 40px 12px 40px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.9rem; color: #0f172a; background: #f8fafc; transition: all 0.2s; outline: none; }
+        .form-input::placeholder { color: #94a3b8; }
+        .form-input:focus { border-color: #0f172a; background: #ffffff; box-shadow: 0 0 0 3px rgba(15,23,42,0.06); }
+
+        
+        .signin-btn { width: 100%; padding: 13px 24px; background: #0f172a; color: #ffffff; border: none; border-radius: 11px; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; margin-top: 24px; box-shadow: 0 2px 8px rgba(15,23,42,0.15); }
+        .signin-btn:hover { background: #1e293b; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(15,23,42,0.2); }
+        .signin-btn svg { width: 16px; height: 16px; fill: none; stroke: #ffffff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+        
+        .divider { display: flex; align-items: center; gap: 12px; margin: 22px 0 16px; }
+        .divider.hidden { display: none; }
+        .divider-line { flex: 1; height: 1px; background: #e2e8f0; }
+        .divider-text { font-size: 0.8rem; color: #64748b; white-space: nowrap; }
+        .divider-text a { color: #0f172a; text-decoration: none; font-weight: 600; }
+        .divider-text a:hover { text-decoration: underline; }
+
+        
+        .footer { margin-top: 16px; font-size: 0.68rem; color: #94a3b8; font-weight: 500; }
+
+        
+        @media (max-width: 480px) { .login-card { padding: 36px 28px 28px; } .brand-name { font-size: 1.8rem; } }
+    </style>
+</head>
+<body>
+    
+    <div class="login-container">
+        <div class="login-card">
+
+            
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 9l10 7 10-7-10-7z"/><path d="M7 12l5 3.5 5-3.5"/><path d="M12 16v4"/><circle cx="12" cy="21" r="1"/></svg>
+            </div>
+
+            
+            <h1 class="brand-name">iShare</h1>
+            <p class="brand-subtitle">IUBAT NOTE SHARING</p>
+
+            
+            <div class="tab-container">
+                <button class="tab active" onclick="switchTab(this, 'student')">Student</button>
+                <button class="tab" onclick="switchTab(this, 'admin')">Admin</button>
+            </div>
+
+            
+            <form onsubmit="event.preventDefault(); handleLogin();" autocomplete="off">
+                <div class="form-group">
+                    <label class="form-label" id="id-label">University ID</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5L2 10z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        </span>
+                        
+                        <input type="text" class="form-input" id="login-id" name="user_identifier" placeholder="e.g. 1912020" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </span>
+                        
+                        <input type="password" class="form-input" id="login-password" name="user_passphrase" placeholder="Enter your password" autocomplete="new-password">
+                    </div>
+                </div>
+                
+                <button type="submit" class="signin-btn">
+                    Sign In
+                    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+            </form>
+
+            
+            <div class="divider" id="create-account-divider">
+                <div class="divider-line"></div>
+                <div class="divider-text">Don't have an account? <a href="register.html">Create Account</a></div>
+                <div class="divider-line"></div>
+            </div>
+
+            
+            <div class="footer">Â© 2026 iShare - IUBAT</div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    
+    <!-- ============================================ -->
+    <script>
+        
+        function switchTab(tab, type) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const label = document.getElementById('id-label');
+            const input = document.getElementById('login-id');
+            const divider = document.getElementById('create-account-divider');
+            if (type === 'student') {
+                
+                label.textContent = 'University ID';
+                input.placeholder = 'e.g. 1912020';
+                divider.classList.remove('hidden');
+            } else {
+                
+                label.textContent = 'Admin ID';
+                input.placeholder = 'e.g. ADMIN-001';
+                divider.classList.add('hidden');
+            }
+        }
+
+        
+        function handleLogin() {
+            const id = document.getElementById('login-id').value.trim();
+            const password = document.getElementById('login-password').value.trim();
+
+            
+            if (!id) { alert('Please enter your ID'); return; }
+            if (!password) { alert('Please enter your password'); return; }
+
+            const userType = document.querySelector('.tab.active').textContent.trim();
+            const inputId = document.getElementById('login-id').value.trim();
+            const inputPassword = document.getElementById('login-password').value.trim();
+
+            if (userType === 'Student') {
+                
+                const accounts = JSON.parse(localStorage.getItem('ishare_accounts') || '[]');
+                
+                const account = accounts.find(a => a.studentId === inputId && a.password === inputPassword && a.status !== 'inactive');
+                if (!account) {
+                    alert('Invalid University ID or password. Please try again or register first.');
+                    return;
+                }
+                
+                localStorage.setItem('ishare_user_id', account.studentId);
+                localStorage.setItem('ishare_user_password', account.password);
+                localStorage.setItem('ishare_user_type', 'Student');
+                localStorage.setItem('ishare_user_name', account.fullname);
+                localStorage.setItem('ishare_user_department', account.department || '');
+                localStorage.setItem('ishare_user_online', 'true');
+                localStorage.setItem('ishare_user_last_seen', Date.now().toString());
+                
+                window.location.href = 'student-home.html';
+            } else {
+                
+                if (inputId !== '123456' || inputPassword !== '123456') {
+                    alert('Invalid Admin ID or password. Access denied.');
+                    return;
+                }
+                localStorage.setItem('ishare_user_id', inputId);
+                localStorage.setItem('ishare_user_password', inputPassword);
+                localStorage.setItem('ishare_user_type', 'Admin');
+                localStorage.setItem('ishare_user_name', '');
+                localStorage.setItem('ishare_user_department', '');
+                
+                window.location.href = 'admin-dashboard.html';
+            }
+        }
+    </script>
+</body>
+</html>
+

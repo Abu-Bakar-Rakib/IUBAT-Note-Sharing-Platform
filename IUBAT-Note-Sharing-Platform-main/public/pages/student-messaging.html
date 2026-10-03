@@ -1,0 +1,189 @@
+<!-- ============================================================ -->
+<!-- student-messaging.html - iShare IUBAT Platform                          -->
+<!-- This page represents the UI for the student-messaging feature. -->
+<!-- ============================================================ -->
+
+﻿<!-- ============================================ -->
+<!-- Messaging - iShare IUBAT                       -->
+
+<!-- ============================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messaging - iShare IUBAT</title>
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="../css/student-home.css">
+    <link rel="stylesheet" href="../css/student-messaging.css">
+</head>
+<body>
+    
+    <header class="topbar">
+        <div class="topbar-left">
+            <a href="#" class="topbar-logo">
+                <div class="topbar-logo-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 9l10 7 10-7-10-7z"/><path d="M7 12l5 3.5 5-3.5"/><path d="M12 16v4"/><circle cx="12" cy="21" r="1"/></svg>
+                </div>
+                <div>
+                    <div class="topbar-logo-text">iShare</div>
+                    <div class="topbar-logo-badge">IUBAT</div>
+                </div>
+            </a>
+        </div>
+        <div class="topbar-center">
+            <div class="topbar-search-wrapper">
+                <svg class="topbar-search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" class="topbar-search" placeholder="Search notes, slides, course codes (e.g. CSE321)...">
+            </div>
+        </div>
+        <div class="topbar-actions">
+            <button class="topbar-ai-btn" type="button">
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
+                Gemma 3 AI
+            </button>
+            <div class="notification-wrapper" id="notificationWrapper">
+                <button class="topbar-icon-btn" id="notificationBtn" title="Notifications" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                    <span class="topbar-badge" id="notificationBadge" style="display:none;">0</span>
+                </button>
+                <div class="notification-dropdown" id="notificationDropdown">
+                    <div class="notification-header">
+                        <h3>Notifications</h3>
+                        <div class="notification-header-actions">
+                            <button class="mark-all-read" id="markAllRead" type="button">Mark all as read</button>
+                            <button class="delete-all" id="deleteAllNotifications" type="button">Delete all</button>
+                        </div>
+                    </div>
+                    <div class="notification-list" id="notificationList">
+                        <div class="notification-empty">No notifications yet.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topbar-avatar" id="studentAvatar" title="My Profile">TP</div>
+        </div>
+    </header>
+
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-profile">
+                <div class="sidebar-profile-card">
+                    <div class="sidebar-avatar" id="sidebarAvatar">TP</div>
+                    <div class="sidebar-profile-info">
+                        <div class="sidebar-profile-name" id="sidebarName">Tanwin Podishetty</div>
+                        <div class="sidebar-profile-dept" id="sidebarDept">Computer Science & Engin..</div>
+                    </div>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-item" type="button" onclick="window.location.href='student-home.html'">
+                    <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                    Home
+                </button>
+                <button class="nav-item" type="button" onclick="window.location.href='student-people.html'">
+                    <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4v2a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+                    People
+                </button>
+                <button class="nav-item active" type="button" onclick="window.location.href='student-messaging.html'">
+                    <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+                    Messaging
+                    <span class="nav-dot"></span>
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="sidebar-logout" type="button" id="sidebarLogoutBtn">
+                    <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        
+        <div class="main-area">
+            <main class="content">
+                <div class="messaging-layout">
+                    
+                    <div class="messaging-sidebar">
+                        <div class="messaging-sidebar-header">
+                            <div class="messaging-sidebar-title">Conversations</div>
+                            
+                            <input type="text" class="messaging-search" placeholder="Search people..." id="messagingSearch">
+                        </div>
+                        <div class="messaging-list" id="messagingList"></div>
+                    </div>
+                    
+                    <div class="messaging-main" id="messagingMain">
+                        <div class="messaging-placeholder">
+                            <div class="messaging-placeholder-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </div>
+                            <div class="messaging-placeholder-title">Select a conversation</div>
+                            <div class="messaging-placeholder-desc">Choose a person from the list to start chatting.</div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    
+    <div class="toast" id="toast"></div>
+
+    
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal-card profile-modal">
+            <div class="modal-header">
+                <div class="modal-title">My Profile</div>
+                <button class="modal-close" id="closeProfileModal" type="button">&times;</button>
+            </div>
+            <div class="modal-body profile-modal-body">
+                <div class="profile-avatar" id="profileModalAvatar">TP</div>
+                <div class="profile-name" id="profileModalName">Student</div>
+                <div class="profile-dept" id="profileModalDept">Student</div>
+                <div class="profile-details">
+                    <div class="profile-detail-item">
+                        <span class="profile-detail-label">Student ID</span>
+                        <span class="profile-detail-value" id="profileModalStudentId">-</span>
+                    </div>
+                    <div class="profile-detail-item">
+                        <span class="profile-detail-label">Department</span>
+                        <span class="profile-detail-value" id="profileModalDeptDetail">-</span>
+                    </div>
+                    <div class="profile-detail-item">
+                        <span class="profile-detail-label">Account Type</span>
+                        <span class="profile-detail-value" id="profileModalType">-</span>
+                    </div>
+                    <div class="profile-detail-item">
+                        <span class="profile-detail-label">Email</span>
+                        <span class="profile-detail-value" id="profileModalEmail">-</span>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="profile-stat">
+                        <span class="profile-stat-value" id="profileModalNotes">0</span>
+                        <span class="profile-stat-label">Notes Posted</span>
+                    </div>
+                    <div class="profile-stat">
+                        <span class="profile-stat-value" id="profileModalDownloads">0</span>
+                        <span class="profile-stat-label">Downloads</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="../js/student-messaging.js"></script>
+    <script src="../js/ai-assistant.js"></script>
+</body>
+</html>
+

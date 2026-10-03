@@ -1,0 +1,128 @@
+<!-- ============================================================ -->
+<!-- academic-guidelines.html - iShare IUBAT Platform                          -->
+<!-- This page represents the UI for the academic-guidelines feature. -->
+<!-- ============================================================ -->
+
+﻿<!-- ============================================ -->
+<!-- Academic Integrity Guidelines - iShare          -->
+
+<!-- ============================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Integrity Guidelines - iShare</title>
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    
+    <style>
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #1a1a1a; padding: 20px; }
+
+        
+        .guidelines-container { width: 100%; max-width: 640px; padding: 20px; }
+        
+        .guidelines-card { background: #ffffff; border: 1px solid #eef0f3; border-radius: 24px; padding: 48px 40px 40px; box-shadow: 0 1px 2px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.04), 0 12px 32px rgba(0,0,0,0.03); }
+
+        
+        .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 600; color: #475569; text-decoration: none; margin-bottom: 24px; transition: color 0.2s; }
+        .back-link:hover { color: #0f172a; }
+        .back-link svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+        
+        .logo-icon { width: 52px; height: 52px; background: #0f172a; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; box-shadow: 0 4px 12px rgba(15,23,42,0.12); }
+        .logo-icon svg { width: 26px; height: 26px; fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+        
+        .brand-name { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; font-size: 2.2rem; font-weight: 700; color: #0f172a; letter-spacing: -0.5px; margin-bottom: 4px; text-align: center; }
+        .brand-subtitle { font-size: 0.7rem; font-weight: 700; letter-spacing: 2.5px; color: #475569; text-transform: uppercase; margin-bottom: 24px; text-align: center; }
+
+        
+        .page-title { font-size: 1.1rem; font-weight: 700; color: #0f172a; text-align: center; margin-bottom: 4px; }
+        .page-subtitle { font-size: 0.85rem; color: #64748b; text-align: center; margin-bottom: 28px; }
+
+        
+        .rules-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .rule-item { display: flex; align-items: flex-start; gap: 14px; padding: 16px 18px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; transition: all 0.2s; }
+        .rule-item:hover { background: #ffffff; border-color: #0f172a; box-shadow: 0 0 0 3px rgba(15,23,42,0.04); }
+        .rule-icon { width: 28px; height: 28px; min-width: 28px; background: #0f172a; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 0.85rem; font-weight: 700; }
+        .rule-text { font-size: 0.9rem; font-weight: 500; color: #1e293b; line-height: 1.5; padding-top: 2px; }
+        .rule-highlight { color: #0f172a; font-weight: 700; }
+
+        
+        .footer { margin-top: 24px; font-size: 0.68rem; color: #94a3b8; font-weight: 500; text-align: center; }
+
+        
+        @media (max-width: 520px) { .guidelines-card { padding: 36px 28px 28px; } .brand-name { font-size: 1.8rem; } }
+    </style>
+</head>
+<body>
+    <div class="guidelines-container">
+        <div class="guidelines-card">
+            
+            <a href="register.html" class="back-link">
+                <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Back to Request Access
+            </a>
+
+            
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 9l10 7 10-7-10-7z"/><path d="M7 12l5 3.5 5-3.5"/><path d="M12 16v4"/><circle cx="12" cy="21" r="1"/></svg>
+            </div>
+            <h1 class="brand-name">iShare</h1>
+            <p class="brand-subtitle">IUBAT NOTE SHARING</p>
+            <h2 class="page-title">Academic Integrity Guidelines</h2>
+            <p class="page-subtitle">Please follow these rules to keep our community safe and helpful.</p>
+
+            
+            <ul class="rules-list">
+                <li class="rule-item">
+                    <span class="rule-icon">1</span>
+                    <span class="rule-text"><span class="rule-highlight">Share notes freely</span> â€” Upload and download lecture notes, assignments, and study materials to help everyone learn better.</span>
+                </li>
+                <li class="rule-item">
+                    <span class="rule-icon">2</span>
+                    <span class="rule-text"><span class="rule-highlight">No exam questions or answers</span> â€” Sharing current or past exam papers with answers is strictly prohibited and may result in account suspension.</span>
+                </li>
+                <li class="rule-item">
+                    <span class="rule-icon">3</span>
+                    <span class="rule-text"><span class="rule-highlight">No plagiarism</span> â€” Only share your own work or properly credited material. Copying others' work without permission is not allowed.</span>
+                </li>
+                <li class="rule-item">
+                    <span class="rule-icon">4</span>
+                    <span class="rule-text"><span class="rule-highlight">No abusive language</span> â€” Be respectful to everyone. Using offensive words, threats, or harassment will lead to immediate removal.</span>
+                </li>
+                <li class="rule-item">
+                    <span class="rule-icon">5</span>
+                    <span class="rule-text"><span class="rule-highlight">Help each other</span> â€” This is a learning community. Support your classmates, answer questions politely, and collaborate in a friendly way.</span>
+                </li>
+                <li class="rule-item">
+                    <span class="rule-icon">6</span>
+                    <span class="rule-text"><span class="rule-highlight">Stay friendly and positive</span> â€” Treat everyone with kindness. A positive attitude makes iShare a better place for all.</span>
+                </li>
+                <li class="rule-item">
+                    <span class="rule-icon">7</span>
+                    <span class="rule-text"><span class="rule-highlight">Respect copyright</span> â€” Do not upload copyrighted books, paid resources, or materials you do not own or have permission to share.</span>
+                </li>
+                <li class="rule-item">
+                    <span class="rule-icon">8</span>
+                    <span class="rule-text"><span class="rule-highlight">No spam or self-promotion</span> â€” Do not post irrelevant links, advertisements, or promotional content.</span>
+                </li>
+            </ul>
+
+            
+            <div class="footer">Â© 2026 iShare - IUBAT</div>
+        </div>
+    </div>
+</body>
+</html>
+

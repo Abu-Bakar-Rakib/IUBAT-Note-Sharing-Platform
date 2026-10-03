@@ -1,0 +1,433 @@
+<!-- ============================================================ -->
+<!-- register.html - iShare IUBAT Platform                          -->
+<!-- This page represents the UI for the register feature. -->
+<!-- ============================================================ -->
+
+﻿<!-- ============================================ -->
+<!-- iShare - Create Account (Registration) Page   -->
+<!-- ============================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - iShare</title>
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    
+    <style>
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #1a1a1a; padding: 20px; }
+
+        
+        .register-container { width: 100%; max-width: 520px; padding: 20px; }
+
+        
+        .register-card { background: #ffffff; border: 1px solid #eef0f3; border-radius: 24px; padding: 48px 40px 40px; box-shadow: 0 1px 2px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.04), 0 12px 32px rgba(0,0,0,0.03); }
+
+        
+        .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 600; color: #475569; text-decoration: none; margin-bottom: 24px; transition: color 0.2s; }
+        .back-link:hover { color: #0f172a; }
+        .back-link svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+        
+        .logo-icon { width: 52px; height: 52px; background: #0f172a; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; box-shadow: 0 4px 12px rgba(15,23,42,0.12); }
+        .logo-icon svg { width: 26px; height: 26px; fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+        
+        .brand-name { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; font-size: 2.2rem; font-weight: 700; color: #0f172a; letter-spacing: -0.5px; margin-bottom: 4px; text-align: center; }
+        .brand-subtitle { font-size: 0.7rem; font-weight: 700; letter-spacing: 2.5px; color: #475569; text-transform: uppercase; margin-bottom: 24px; text-align: center; }
+
+        
+        .page-title { font-size: 1.1rem; font-weight: 700; color: #0f172a; text-align: center; margin-bottom: 4px; }
+        .page-subtitle { font-size: 0.85rem; color: #64748b; text-align: center; margin-bottom: 28px; }
+
+        
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group.full { grid-column: 1 / -1; }
+
+        
+        .form-label { display: block; font-size: 0.82rem; font-weight: 600; color: #334155; margin-bottom: 6px; letter-spacing: -0.1px; }
+
+        
+        .input-wrapper { position: relative; }
+        .input-icon { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; display: flex; align-items: center; justify-content: center; pointer-events: none; opacity: 0.4; }
+        .input-icon svg { width: 15px; height: 15px; fill: none; stroke: #475569; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+        
+        .form-input, .form-select, .form-textarea { width: 100%; padding: 12px 40px 12px 40px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.9rem; color: #0f172a; background: #f8fafc; transition: all 0.2s; outline: none; }
+        .form-textarea { padding: 12px 16px; min-height: 100px; resize: vertical; }
+        .form-input::placeholder, .form-textarea::placeholder { color: #94a3b8; }
+        .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: #0f172a; background: #ffffff; box-shadow: 0 0 0 3px rgba(15,23,42,0.06); }
+
+        
+        .form-select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; cursor: pointer; }
+
+        
+        .custom-select { position: relative; width: 100%; }
+        .custom-select-trigger { width: 100%; padding: 12px 36px 12px 16px; border: 1.5px solid #e2e8f0; border-radius: 10px; background: #f8fafc; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: all 0.2s; user-select: none; }
+        .custom-select-trigger:hover { border-color: #cbd5e1; }
+        .custom-select-trigger.open { border-color: #0f172a; background: #ffffff; box-shadow: 0 0 0 3px rgba(15,23,42,0.06); }
+        .custom-select-trigger span { font-size: 0.9rem; color: #0f172a; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        .custom-select-trigger .placeholder { color: #94a3b8; }
+        .custom-select-arrow { transition: transform 0.2s; flex-shrink: 0; margin-left: 8px; }
+        .custom-select-trigger.open .custom-select-arrow { transform: rotate(180deg); }
+
+        
+        .custom-select-options { position: absolute; top: calc(100% + 6px); left: 0; right: 0; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); z-index: 100; display: none; max-height: 240px; overflow-y: auto; }
+        .custom-select-options.open { display: block; }
+
+        
+        .custom-select-option { padding: 11px 16px; font-size: 0.88rem; color: #334155; cursor: pointer; transition: all 0.15s; border-bottom: 1px solid #f1f5f9; display: flex; flex-direction: column; gap: 2px; }
+        .custom-select-option:last-child { border-bottom: none; }
+        .custom-select-option:hover { background: #f8fafc; color: #0f172a; }
+        .custom-select-option.selected { background: #0f172a; color: #ffffff; }
+        .custom-select-option .dept-short { font-weight: 600; font-size: 0.88rem; }
+        .custom-select-option .dept-full { font-size: 0.75rem; color: #64748b; font-weight: 400; }
+        .custom-select-option:hover .dept-full { color: #94a3b8; }
+        .custom-select-option.selected .dept-full { color: rgba(255,255,255,0.7); }
+
+        
+        .radio-group { display: flex; gap: 12px; }
+        .radio-option { flex: 1; position: relative; }
+        .radio-option input { position: absolute; opacity: 0; pointer-events: none; }
+        .radio-label { display: flex; flex-direction: column; align-items: center; padding: 14px 12px; border: 1.5px solid #e2e8f0; border-radius: 10px; background: #f8fafc; cursor: pointer; transition: all 0.2s; font-size: 0.85rem; font-weight: 500; color: #475569; }
+        .radio-label .radio-icon { width: 28px; height: 28px; margin-bottom: 6px; opacity: 0.5; }
+        .radio-label svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+        .radio-option input:checked + .radio-label { border-color: #0f172a; background: #ffffff; color: #0f172a; box-shadow: 0 0 0 3px rgba(15,23,42,0.06); font-weight: 600; }
+        .radio-option input:checked + .radio-label .radio-icon { opacity: 1; }
+        .radio-option input:focus + .radio-label { box-shadow: 0 0 0 3px rgba(15,23,42,0.06); }
+
+        
+        .submit-btn { width: 100%; padding: 14px 24px; background: #0f172a; color: #ffffff; border: none; border-radius: 11px; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; margin-top: 24px; box-shadow: 0 2px 8px rgba(15,23,42,0.15); }
+        .submit-btn:hover { background: #1e293b; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(15,23,42,0.2); }
+        .submit-btn svg { width: 16px; height: 16px; fill: none; stroke: #ffffff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+        
+        .footer { margin-top: 16px; font-size: 0.68rem; color: #94a3b8; font-weight: 500; text-align: center; }
+
+        
+        .toast { position: fixed; top: 20px; right: 20px; background: #0f172a; color: #ffffff; padding: 14px 20px; border-radius: 12px; font-size: 0.88rem; font-weight: 500; box-shadow: 0 8px 24px rgba(0,0,0,0.2); transform: translateX(120%); transition: transform 0.3s ease; z-index: 1000; max-width: 360px; }
+        .toast.show { transform: translateX(0); }
+        .toast.success { background: #059669; }
+
+        
+        @media (max-width: 520px) { .register-card { padding: 36px 28px 28px; } .brand-name { font-size: 1.8rem; } .form-row { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    
+    <div class="register-container">
+        <div class="register-card">
+
+            
+            <a href="index.html" class="back-link">
+                <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Back to Login
+            </a>
+
+            
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 9l10 7 10-7-10-7z"/><path d="M7 12l5 3.5 5-3.5"/><path d="M12 16v4"/><circle cx="12" cy="21" r="1"/></svg>
+            </div>
+            <h1 class="brand-name">iShare</h1>
+            <p class="brand-subtitle">IUBAT NOTE SHARING</p>
+            <h2 class="page-title">Create Account</h2>
+            <p class="page-subtitle">Join iShare and start sharing notes with your classmates.</p>
+
+            
+            <form id="register-form" onsubmit="event.preventDefault(); handleRegistration();">
+                
+                <div class="form-group full">
+                    <label class="form-label">Full Name</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </span>
+                        <input type="text" class="form-input" id="fullname" placeholder="Your full name" autocomplete="name">
+                    </div>
+                </div>
+
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">University ID</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5L2 10z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                            </span>
+                            <input type="text" class="form-input" id="student-id" placeholder="e.g. 1912020">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Department</label>
+                        
+                        <div class="custom-select" id="department-select">
+                            <div class="custom-select-trigger" id="dept-trigger">
+                                <span id="dept-selected-text" class="placeholder">Select your department</span>
+                                <svg class="custom-select-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                            <div class="custom-select-options" id="dept-options"></div>
+                        </div>
+                        <input type="hidden" id="department" value="">
+                    </div>
+                </div>
+
+                
+                <div class="form-group full">
+                    <label class="form-label">University Email</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+                        </span>
+                        <input type="email" class="form-input" id="email" placeholder="your@email.com" autocomplete="email">
+                    </div>
+                </div>
+
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </span>
+                            <input type="password" class="form-input" id="password" placeholder="Create a password" autocomplete="new-password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Confirm</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </span>
+                            <input type="password" class="form-input" id="confirm-password" placeholder="Confirm your password" autocomplete="new-password">
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="form-group full" style="margin-top: 8px; margin-bottom: 20px;">
+                    <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #334155; cursor: pointer; font-weight: 500;">
+                        <input type="checkbox" id="agree" style="width: 16px; height: 16px; accent-color: #0f172a; cursor: pointer;">
+                        <span>I agree to uphold the <a href="academic-guidelines.html" target="_blank">Academic Integrity Guidelines</a> and library policies.</span>
+                    </label>
+                </div>
+
+                
+                <button type="submit" class="submit-btn">
+                    Create Account
+                    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+            </form>
+
+            
+            <div class="footer">Â© 2026 iShare - IUBAT</div>
+        </div>
+    </div>
+
+    
+    <div class="toast" id="toast"></div>
+
+    <!-- ============================================ -->
+    
+    <!-- ============================================ -->
+    <script>
+        
+        const API_BASE_URL = (typeof window !== 'undefined' && window.API_BASE_URL) ? window.API_BASE_URL : '';
+
+        
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast ' + type;
+            setTimeout(() => toast.classList.add('show'), 10);
+            setTimeout(() => toast.classList.remove('show'), 3500);
+        }
+
+        
+        async function handleRegistration() {
+            const fullname = document.getElementById('fullname').value.trim();
+            const studentId = document.getElementById('student-id').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const department = document.getElementById('department').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const agree = document.getElementById('agree').checked;
+
+            if (!fullname) { alert('Please enter your full name'); return; }
+            if (!studentId) { alert('Please enter your University ID'); return; }
+            if (!email) { alert('Please enter your email'); return; }
+            if (!department) { alert('Please select your department'); return; }
+            if (!password) { alert('Please create a password'); return; }
+            if (password.length < 6) { alert('Password must be at least 6 characters'); return; }
+            if (password !== confirmPassword) { alert('Passwords do not match'); return; }
+            if (!agree) { alert('Please agree to the Academic Integrity Guidelines and library policies'); return; }
+
+            try {
+                const response = await fetch(API_BASE_URL + '/api/auth/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ studentId, fullname, email, department, password })
+                });
+                const result = await response.json();
+                if (!result.success) {
+                    alert(result.message || 'Registration failed');
+                    return;
+                }
+                localStorage.setItem('ishare_user_id', studentId);
+                localStorage.setItem('ishare_user_password', password);
+                localStorage.setItem('ishare_user_type', 'Student');
+                localStorage.setItem('ishare_user_name', fullname);
+                localStorage.setItem('ishare_user_department', department);
+                showToast('Registration successful! Redirecting to student home...', 'success');
+                setTimeout(() => { window.location.href = 'student-home.html'; }, 1500);
+            } catch (err) {
+                alert('Registration failed. Please try again.');
+            }
+        }
+
+        
+        let trigger, optionsContainer, selectedText, hiddenInput;
+
+        
+        function getEnabledDepartments() {
+            
+            const defaultDepts = [
+                { code: 'BCSE', name: 'Computer Science & Engineering' },
+                { code: 'BSEEE', name: 'Electrical & Electronic Engineering' },
+                { code: 'BBA', name: 'Business Administration' },
+                { code: 'BSCE', name: 'Civil Engineering' },
+                { code: 'BSME', name: 'Mechanical Engineering' },
+                { code: 'BSN', name: 'Nursing' },
+                { code: 'BATHM', name: 'Tourism & Hospitality Management' },
+                { code: 'BAEcon', name: 'Economics' },
+                { code: 'BAENG', name: 'English' },
+                { code: 'BSAg', name: 'Agriculture' }
+            ];
+
+            try {
+                
+                const saved = JSON.parse(localStorage.getItem('ishare_departments') || 'null');
+                if (!saved || !Array.isArray(saved) || saved.length === 0) {
+                    localStorage.setItem('ishare_departments', JSON.stringify(defaultDepts));
+                    renderDeptOptions(defaultDepts);
+                    return;
+                }
+
+                
+                const enabledCodes = new Set(saved.filter(d => d.enabled !== false).map(d => d.code));
+                const optionsContainer = document.getElementById('dept-options');
+                const existingOptions = optionsContainer.querySelectorAll('.custom-select-option');
+                const existingMap = new Map();
+                existingOptions.forEach(opt => existingMap.set(opt.getAttribute('data-value'), opt));
+
+                saved.forEach(dept => {
+                    if (existingMap.has(dept.code)) {
+                        const opt = existingMap.get(dept.code);
+                        opt.setAttribute('data-full', dept.name || dept.code);
+                        opt.querySelector('.dept-full').textContent = dept.name || dept.code;
+                        opt.querySelector('.dept-short').textContent = dept.code;
+                        opt.style.display = enabledCodes.has(dept.code) ? '' : 'none';
+                    } else {
+                        
+                        const option = document.createElement('div');
+                        option.className = 'custom-select-option';
+                        option.setAttribute('data-value', dept.code);
+                        option.setAttribute('data-full', dept.name || dept.code);
+                        option.innerHTML = `<span class="dept-short">${dept.code}</span><span class="dept-full">${dept.name || dept.code}</span>`;
+                        option.style.display = enabledCodes.has(dept.code) ? '' : 'none';
+                        optionsContainer.appendChild(option);
+                        option.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            const value = this.getAttribute('data-value');
+                            const fullName = this.getAttribute('data-full');
+                            hiddenInput.value = fullName;
+                            selectedText.textContent = fullName;
+                            selectedText.classList.remove('placeholder');
+                            optionsContainer.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+                            this.classList.add('selected');
+                            closeAllSelects();
+                        });
+                    }
+                });
+
+                
+                const selectedOption = document.querySelector('.custom-select-option.selected');
+                const selectedCode = selectedOption ? selectedOption.getAttribute('data-value') : null;
+                if (selectedCode && !enabledCodes.has(selectedCode)) {
+                    document.getElementById('department').value = '';
+                    document.getElementById('dept-selected-text').textContent = 'Select your department';
+                    document.getElementById('dept-selected-text').classList.add('placeholder');
+                    if (selectedOption) selectedOption.classList.remove('selected');
+                }
+            } catch {
+                renderDeptOptions(defaultDepts);
+            }
+
+            
+            function renderDeptOptions(depts) {
+                const optionsContainer = document.getElementById('dept-options');
+                optionsContainer.innerHTML = '';
+                depts.forEach(dept => {
+                    const option = document.createElement('div');
+                    option.className = 'custom-select-option';
+                    option.setAttribute('data-value', dept.code);
+                    option.setAttribute('data-full', dept.name || dept.code);
+                    option.innerHTML = `<span class="dept-short">${dept.code}</span><span class="dept-full">${dept.name || dept.code}</span>`;
+                    optionsContainer.appendChild(option);
+                    option.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const value = this.getAttribute('data-value');
+                        const fullName = this.getAttribute('data-full');
+                        hiddenInput.value = fullName;
+                        selectedText.textContent = fullName;
+                        selectedText.classList.remove('placeholder');
+                        optionsContainer.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+                        this.classList.add('selected');
+                        closeAllSelects();
+                    });
+                });
+            }
+        }
+
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            trigger = document.getElementById('dept-trigger');
+            optionsContainer = document.getElementById('dept-options');
+            selectedText = document.getElementById('dept-selected-text');
+            hiddenInput = document.getElementById('department');
+
+            trigger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const isOpen = optionsContainer.classList.contains('open');
+                closeAllSelects();
+                if (!isOpen) {
+                    optionsContainer.classList.add('open');
+                    trigger.classList.add('open');
+                }
+            });
+
+            document.addEventListener('click', function() { closeAllSelects(); });
+
+            function closeAllSelects() {
+                optionsContainer.classList.remove('open');
+                trigger.classList.remove('open');
+            }
+
+            getEnabledDepartments();
+        });
+    </script>
+</body>
+</html>
+
